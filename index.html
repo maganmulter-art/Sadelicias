@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="pt-PT" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Sá Delícias 786 | Bolos & Salgados Artesanais</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#ffffff',
+                        'brand-dark': '#f8fafc',
+                        'brand-accent': '#e11d48',
+                        'brand-soft': '#e2e8f0'
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #ffffff; -webkit-tap-highlight-color: transparent; }
+        .scroll-clean::-webkit-scrollbar { display: none; }
+        .scroll-clean { -ms-overflow-style: none; scrollbar-width: none; }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom, 1rem); }
+    </style>
+</head>
+<body class="text-gray-800 antialiased selection:bg-rose-600 selection:text-white pb-20 md:pb-0">
+
+    <!-- TOPBAR INFORMATIVA DESKTOP -->
+    <div class="bg-gray-900 text-white text-xs py-2 px-4 hidden md:block border-b border-gray-800">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-6">
+                <span class="flex items-center gap-2"><i class="fa-solid fa-phone text-amber-400"></i> Encomendas: +258 84 000 0000</span>
+                <span class="flex items-center gap-2"><i class="fa-solid fa-clock text-amber-400"></i> Seg - Sáb: 09h - 18h | Dom: 09h - 15h</span>
+            </div>
+            <div class="flex items-center gap-4 font-medium">
+                <a href="https://facebook.com" target="_blank" class="hover:text-amber-400 transition flex items-center gap-1.5"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                <a href="https://instagram.com" target="_blank" class="hover:text-amber-400 transition flex items-center gap-1.5"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                <a href="https://wa.me/258840333913" target="_blank" class="hover:text-amber-400 transition flex items-center gap-1.5"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HEADER DESKTOP E MOBILE -->
+    <header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-40 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 sm:h-20 items-center">
+                <a href="#inicio" class="flex items-center gap-2 sm:gap-3">
+                    <img src="logo.png" onerror="this.onerror=null; this.src='https://via.placeholder.com/150x150/ffffff/e11d48?text=Sa+Delicias';" alt="Sá Delícias 786 Logo" class="h-10 sm:h-12 w-auto object-contain rounded-full border border-gray-200 p-0.5 shadow-sm">
+                    <div class="flex flex-col">
+                        <span class="text-base sm:text-2xl font-extrabold text-gray-900 tracking-tight uppercase leading-tight">Sá Delícias 786</span>
+                        <span class="text-[8px] sm:text-[10px] text-rose-600 uppercase tracking-widest font-bold italic">Bolos & Salgados Artesanais</span>
+                    </div>
+                </a>
+
+                <div class="flex items-center gap-2">
+                    <button onclick="toggleCarrinho()" class="relative bg-rose-600 hover:bg-rose-700 text-white px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl transition flex items-center gap-2 font-bold text-xs sm:text-sm shadow-md">
+                        <i class="fa-solid fa-basket-shopping text-sm sm:text-base"></i>
+                        <span>Meu Pedido</span>
+                        <span id="cart-count-header" class="bg-amber-400 text-gray-900 text-xs font-extrabold w-5 h-5 rounded-full flex items-center justify-center">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (COM CARROSSEL SLIDER DINÂMICO DE FOTOS) -->
+    <section id="inicio" class="relative text-gray-900 min-h-[45vh] flex items-center overflow-hidden bg-gradient-to-b from-slate-50 to-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-20 py-8 md:py-16">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
+                <div class="space-y-3 sm:space-y-4 text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 bg-rose-50 text-rose-600 border border-rose-200 px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold tracking-wide uppercase">
+                        <i class="fa-solid fa-star text-amber-500"></i> Fábrica de Sabores Artesanais
+                    </div>
+                    <h1 class="text-2xl sm:text-5xl font-extrabold tracking-tight text-gray-900 leading-tight">Sá Delícias 786</h1>
+                    <p class="text-gray-600 text-sm sm:text-xl font-medium italic">Especialistas em tornar as suas datas inesquecíveis.</p>
+                    <div class="pt-2">
+                        <a href="#cardapio" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-rose-600 hover:bg-rose-700 text-white font-extrabold px-6 py-3 sm:px-8 sm:py-3.5 rounded-2xl shadow-lg transition-all uppercase tracking-wider text-xs sm:text-sm">
+                            VER CARDÁPIO GERAL <i class="fa-solid fa-arrow-down"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- CONTAINER SLIDER DE FOTOS -->
+                <div class="flex justify-center md:justify-end">
+                    <div class="relative w-full max-w-xs sm:max-w-sm aspect-square rounded-3xl overflow-hidden shadow-xl border-4 border-white group">
+                        <img id="hero-slider-img" src="bolo.jpeg" onerror="tratarErroImagem(this)" onclick="abrirZoom(this.src)" alt="Destaque Sá Delícias" class="w-full h-full object-cover cursor-zoom-in transition-all duration-500">
+                        
+                        <!-- Botões para trocar fotos -->
+                        <button onclick="mudarFotoHero(-1)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fa-solid fa-chevron-left text-xs"></i>
+                        </button>
+                        <button onclick="mudarFotoHero(1)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fa-solid fa-chevron-right text-xs"></i>
+                        </button>
+
+                        <!-- Indicadores inferiores -->
+                        <div id="hero-slider-dots" class="absolute bottom-3 left-0 right-0 flex justify-center gap-1.5 z-10"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE NÓS -->
+    <section id="sobre" class="bg-slate-50/60 py-8 sm:py-10 border-b border-gray-100">
+        <div class="max-w-4xl mx-auto px-4 text-center space-y-3">
+            <span class="bg-rose-600 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest shadow-sm inline-block">Quem Somos</span>
+            <h2 class="text-lg sm:text-2xl font-extrabold text-gray-900 tracking-tight">Especialistas em Confeitaria e Salgados</h2>
+            <p class="text-gray-600 text-xs sm:text-sm leading-relaxed max-w-2xl mx-auto">
+                Somos a <strong>Sá Delícias 786</strong>, uma empresa especializada na fabricação de bolos caseiros, de aniversário, batizados e de casamento. Também oferecemos todo o tipo de salgados de alta qualidade para o seu evento.
+            </p>
+        </div>
+    </section>
+
+    <!-- CARDÁPIO GERAL -->
+    <section id="cardapio" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+        <div class="text-center space-y-1.5 sm:space-y-2 mb-6">
+            <h2 class="text-xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">Nosso Cardápio</h2>
+            <p class="text-gray-500 text-xs sm:text-sm">Escolha os seus produtos e personalize os tamanhos e recheios</p>
+            <div class="w-12 sm:w-16 h-1 bg-rose-600 mx-auto rounded-full mt-2"></div>
+        </div>
+
+        <div class="max-w-lg mx-auto mb-6">
+            <div class="relative flex items-center bg-white shadow-sm border border-gray-200 rounded-2xl overflow-hidden focus-within:border-rose-600 transition-all">
+                <span class="pl-4 text-gray-400"><i class="fa-solid fa-magnifying-glass"></i></span>
+                <input type="text" id="campo-busca" oninput="filtrarProdutos()" placeholder="Buscar bolo, salgado, rissol..." class="w-full pl-3 pr-4 py-2.5 sm:py-3 text-xs sm:text-sm bg-transparent outline-none text-gray-700">
+            </div>
+        </div>
+
+        <div class="w-full border-b border-gray-200 mb-6 overflow-hidden">
+            <div class="flex space-x-2 overflow-x-auto pb-3 scroll-clean justify-start md:justify-center" id="container-categorias">
+                <button onclick="filtrarCategoria('todos', this)" class="btn-cat shrink-0 px-4 py-2 rounded-xl font-bold bg-rose-600 text-white text-xs sm:text-sm transition shadow-sm">Todos</button>
+                <button onclick="filtrarCategoria('bolos', this)" class="btn-cat shrink-0 px-4 py-2 rounded-xl font-medium text-gray-500 hover:text-rose-600 text-xs sm:text-sm transition">Bolos</button>
+                <button onclick="filtrarCategoria('salgados', this)" class="btn-cat shrink-0 px-4 py-2 rounded-xl font-medium text-gray-500 hover:text-rose-600 text-xs sm:text-sm transition">Salgados</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6" id="lista-produtos"></div>
+    </section>
+
+    <!-- HORÁRIOS DE FUNCIONAMENTO -->
+    <section id="horarios" class="bg-gray-900 text-white py-10 sm:py-12">
+        <div class="max-w-3xl mx-auto px-4 text-center space-y-4 sm:space-y-6">
+            <div class="inline-flex items-center gap-2 bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 px-3.5 py-1 rounded-full text-[10px] sm:text-xs font-bold tracking-wide uppercase">
+                <i class="fa-solid fa-circle text-[8px] animate-pulse"></i> Atendimento Semanal
+            </div>
+            <h2 class="text-xl sm:text-3xl font-extrabold tracking-tight">Horários de Atendimento</h2>
+            <p class="text-gray-400 text-xs sm:text-sm">Consulte o nosso horário detalhado para encomendas e atendimento</p>
+            
+            <div class="bg-gray-800 rounded-2xl p-4 sm:p-6 shadow-xl border border-gray-700 max-w-md mx-auto text-xs sm:text-sm space-y-3">
+                <div class="flex justify-between items-center border-b border-gray-700/80 pb-2">
+                    <span class="font-bold text-gray-200">Segunda-feira</span>
+                    <span class="text-emerald-400 font-bold">09:00 - 18:00</span>
+                </div>
+                <div class="flex justify-between items-center border-b border-gray-700/80 pb-2">
+                    <span class="font-bold text-gray-200">Terça-feira</span>
+                    <span class="text-emerald-400 font-bold">09:00 - 18:00</span>
+                </div>
+                <div class="flex justify-between items-center border-b border-gray-700/80 pb-2">
+                    <span class="font-bold text-gray-200">Quarta-feira</span>
+                    <span class="text-emerald-400 font-bold">09:00 - 18:00</span>
+                </div>
+                <div class="flex justify-between items-center border-b border-gray-700/80 pb-2">
+                    <span class="font-bold text-gray-200">Quinta-feira</span>
+                    <span class="text-emerald-400 font-bold">09:00 - 18:00</span>
+                </div>
+                <div class="flex justify-between items-center border-b border-gray-700/80 pb-2">
+                    <span class="font-bold text-gray-200">Sexta-feira</span>
+                    <span class="text-emerald-400 font-bold">09:00 - 18:00</span>
+                </div>
+                <div class="flex justify-between items-center border-b border-gray-700/80 pb-2">
+                    <span class="font-bold text-gray-200">Sábado</span>
+                    <span class="text-emerald-400 font-bold">09:00 - 18:00</span>
+                </div>
+                <div class="flex justify-between items-center pt-0.5">
+                    <span class="font-bold text-gray-200">Domingo</span>
+                    <span class="text-emerald-400 font-bold">09:00 - 15:00</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALCULADORA DE EVENTOS -->
+    <section id="calculadora" class="bg-slate-50 py-8 sm:py-10 border-t border-gray-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center space-y-1.5 sm:space-y-2 mb-6">
+                <span class="text-xs font-bold text-rose-600 uppercase tracking-wider">Simulador Rápido</span>
+                <h2 class="text-xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">Calculadora de Eventos</h2>
+                <p class="text-gray-500 text-xs sm:text-sm">Calcule a estimativa de salgados e tamanho de bolo ideal</p>
+            </div>
+
+            <div class="bg-white rounded-3xl p-5 sm:p-6 shadow-lg border border-gray-200 space-y-5">
+                <form id="formCalculadora" onsubmit="calcularEvento(event)" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="calcPessoas" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Nº de Convidados *</label>
+                        <input type="number" id="calcPessoas" min="1" placeholder="Ex: 30" required class="w-full p-3 border border-gray-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-rose-600">
+                    </div>
+                    <div>
+                        <label for="calcTipo" class="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1.5">Tipo de Evento *</label>
+                        <select id="calcTipo" required class="w-full p-3 border border-gray-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-rose-600">
+                            <option value="Aniversário">Aniversário</option>
+                            <option value="Casamento">Casamento</option>
+                            <option value="Batizado">Batizado</option>
+                            <option value="Festa Infantil">Festa Infantil</option>
+                        </select>
+                    </div>
+                    <div class="sm:col-span-2">
+                        <button type="submit" class="w-full bg-rose-600 hover:bg-rose-700 text-white font-bold py-3.5 rounded-xl transition shadow-md flex items-center justify-center gap-2 text-xs uppercase tracking-wide">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i> Calcular Estimativa
+                        </button>
+                    </div>
+                </form>
+
+                <div id="resultadoCalculadora" class="hidden bg-rose-50/50 p-4 rounded-2xl border border-rose-100 space-y-3">
+                    <h3 class="font-bold text-rose-700 text-xs sm:text-sm border-b border-rose-200/60 pb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-clipboard-check"></i> Recomendação Sá Delícias 786:
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                        <div class="bg-white p-3 rounded-xl border border-rose-100">
+                            <strong class="text-gray-800 block">🥐 Salgados Sugeridos:</strong>
+                            <span id="resSalgados" class="text-rose-600 font-bold">0 dúzias</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-rose-100">
+                            <strong class="text-gray-800 block">🎂 Bolo Sugerido:</strong>
+                            <span id="resBolo" class="text-rose-600 font-bold">Bolo Médio</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto-secao" class="bg-white py-8 sm:py-10 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-3 sm:space-y-4">
+            <span class="bg-rose-600 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-widest shadow-sm inline-block">
+                <i class="fa-solid fa-paper-plane mr-1"></i> Fale Connosco
+            </span>
+            <h2 class="text-xl sm:text-2xl font-extrabold text-gray-900">Entre em Contacto</h2>
+            <a href="https://wa.me/258840333913" target="_blank" class="inline-flex items-center gap-2 bg-emerald-600 text-white font-bold px-6 py-3 rounded-xl shadow-md hover:bg-emerald-700 transition text-xs sm:text-sm">
+                <i class="fa-brands fa-whatsapp text-lg"></i> Fazer Pedido via WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- MODAIS DE ZOOM, OPÇÕES E CARRINHO -->
+    <div id="modalZoom" class="fixed inset-0 bg-black/90 z-50 hidden flex items-center justify-center p-4 backdrop-blur-md cursor-zoom-out" onclick="fecharZoom()">
+        <button onclick="fecharZoom()" class="absolute top-5 right-5 text-white/80 text-3xl z-50 p-2"><i class="fa-solid fa-xmark"></i></button>
+        <img id="imgModalZoom" src="" alt="Zoom" class="max-w-full max-h-[90vh] object-contain rounded-xl shadow-2xl">
+    </div>
+
+    <div id="modalOpcoes" class="fixed inset-0 bg-black/70 z-50 hidden flex items-center justify-center p-3 sm:p-4 backdrop-blur-sm">
+        <div class="bg-white rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
+            <div class="bg-rose-600 text-white p-4 flex items-center justify-between">
+                <h3 id="modalOpcoesTitulo" class="font-bold text-sm sm:text-base text-white">Personalizar Produto</h3>
+                <button onclick="fecharModalOpcoes()" class="text-white/80 hover:text-white text-xl p-1"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="p-4 sm:p-6 overflow-y-auto space-y-4 flex-1" id="modalOpcoesCorpo"></div>
+            <div class="p-4 border-t border-gray-100 bg-gray-50 flex items-center justify-between gap-3">
+                <div>
+                    <span class="text-[10px] text-gray-400 block">Preço</span>
+                    <span id="modalOpcoesPreco" class="text-base sm:text-lg font-extrabold text-rose-600">Sob Consulta</span>
+                </div>
+                <button onclick="confirmarAdicaoCarrinho()" class="bg-rose-600 hover:bg-rose-700 text-white px-4 sm:px-5 py-2.5 rounded-xl font-bold text-xs transition shadow-md flex items-center gap-2">
+                    <i class="fa-solid fa-cart-plus"></i> Adicionar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="carrinho-modal" class="fixed inset-0 bg-black/60 z-50 hidden transition-opacity flex justify-end">
+        <div class="bg-white w-full max-w-md h-full shadow-2xl flex flex-col justify-between">
+            <div class="p-4 border-b border-gray-100 flex items-center justify-between bg-rose-600 text-white">
+                <div class="flex items-center gap-3">
+                    <i class="fa-solid fa-basket-shopping text-lg sm:text-xl"></i>
+                    <h3 class="font-bold text-sm sm:text-base">Seu Pedido</h3>
+                </div>
+                <button onclick="toggleCarrinho()" class="text-white/80 hover:text-white text-xl p-1"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="p-4 overflow-y-auto flex-1 space-y-3" id="itens-carrinho"></div>
+            <div class="p-4 border-t border-gray-100 bg-gray-50 space-y-4 pb-safe">
+                <button onclick="enviarPedidoWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl shadow-lg transition flex items-center justify-center gap-2 text-xs uppercase tracking-wide">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Finalizar Encomenda no WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTÃO FLUTUANTE WHATSAPP -->
+    <a href="https://wa.me/258840333913" target="_blank" class="fixed bottom-16 right-4 z-40 bg-emerald-500 text-white p-3 rounded-full shadow-2xl hover:scale-105 transition-transform flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 border-2 border-white md:bottom-6">
+        <i class="fa-brands fa-whatsapp text-xl sm:text-2xl"></i>
+    </a>
+
+    <!-- BARRA DE NAVEGAÇÃO INFERIOR MOBILE FIXA -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-gray-200 z-40 py-1.5 px-2 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] pb-safe md:hidden">
+        <div class="max-w-md mx-auto flex justify-around items-center">
+            <a href="#inicio" class="flex flex-col items-center text-gray-500 hover:text-rose-600 transition-colors py-1 px-2">
+                <i class="fa-solid fa-house text-base mb-0.5"></i>
+                <span class="text-[9px] font-bold">Início</span>
+            </a>
+            <a href="#cardapio" class="flex flex-col items-center text-rose-600 font-bold transition-colors py-1 px-2">
+                <i class="fa-solid fa-utensils text-base mb-0.5"></i>
+                <span class="text-[9px] font-bold">Cardápio</span>
+            </a>
+            <a href="#calculadora" class="flex flex-col items-center text-gray-500 hover:text-rose-600 transition-colors py-1 px-2">
+                <i class="fa-solid fa-calculator text-base mb-0.5"></i>
+                <span class="text-[9px] font-bold">Simulador</span>
+            </a>
+            <a href="#horarios" class="flex flex-col items-center text-gray-500 hover:text-rose-600 transition-colors py-1 px-2">
+                <i class="fa-solid fa-calendar-days text-base mb-0.5"></i>
+                <span class="text-[9px] font-bold">Horários</span>
+            </a>
+            <button onclick="toggleCarrinho()" class="relative flex flex-col items-center text-gray-500 hover:text-rose-600 transition-colors py-1 px-2">
+                <div class="relative">
+                    <i class="fa-solid fa-basket-shopping text-base mb-0.5"></i>
+                    <span id="cart-count-bottom" class="absolute -top-1.5 -right-2 bg-rose-600 text-white text-[8px] font-extrabold w-3.5 h-3.5 rounded-full flex items-center justify-center border border-white">0</span>
+                </div>
+                <span class="text-[9px] font-bold">Pedido</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- FOOTER COM FACEBOOK E INSTAGRAM -->
+    <footer class="bg-gray-900 text-white pt-8 pb-24 md:pb-8">
+        <div class="max-w-7xl mx-auto px-4 text-center md:text-left grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            <div class="space-y-2 flex flex-col items-center md:items-start">
+                <h3 class="text-lg sm:text-xl font-extrabold tracking-wide uppercase text-white">Sá Delícias 786</h3>
+                <p class="text-gray-400 text-xs">Fábrica de bolos caseiros, de aniversário, batizados, casamentos e todo o tipo de salgados.</p>
+            </div>
+            <div class="space-y-2 flex flex-col items-center md:items-start">
+                <h4 class="text-xs font-bold uppercase text-white">Atendimento</h4>
+                <p class="text-gray-400 text-xs"><i class="fa-solid fa-clock mr-1"></i> Seg - Sáb: 09:00 - 18:00 | Dom: 09:00 - 15:00</p>
+            </div>
+            <div class="space-y-2 flex flex-col items-center md:items-start">
+                <h4 class="text-xs font-bold uppercase text-white">Siga-nos</h4>
+                <div class="flex items-center gap-4 text-lg">
+                    <a href="https://facebook.com" target="_blank" class="text-gray-400 hover:text-amber-400 transition"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://instagram.com" target="_blank" class="text-gray-400 hover:text-amber-400 transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://wa.me/258840333913" target="_blank" class="text-gray-400 hover:text-amber-400 transition"><i class="fa-brands fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <hr class="border-gray-800 my-6 max-w-7xl mx-auto">
+        <div class="text-center text-[11px] text-gray-500">&copy; 2026 Sá Delícias 786. Todos os direitos reservados.</div>
+    </footer>
+
+    <!-- SCRIPTS LÓGICA -->
+    <script>
+        const fotosHero = [
+            "bolo.jpeg",
+            "bolo2.jpeg",
+            "salg3.jpeg"
+        ];
+        let fotoHeroIndex = 0;
+
+        const produtosSaDelicias = [
+            {
+                id: 1,
+                nome: "Bolos para Eventos Especializados",
+                categoria: "bolos",
+                descricao: "Bolos artesanais para Aniversário, Casamento e Batizados personalizados de acordo com o tema do seu evento.",
+                imagens: ["bolo2.jpeg", "bolo3.jpeg", "bolo.jpeg"],
+                opcoes: { tamanhos: [{ nome: "Bolo de Aniversário" }, { nome: "Bolo de Casamento" }, { nome: "Bolo de Batizado" }] }
+            },
+            {
+                id: 2,
+                nome: "Bolos Caseiros",
+                categoria: "bolos",
+                descricao: "Bolos fofinhos e frescos preparados diariamente com receitas tradicionais caseiras.",
+                imagens: ["caseiro.jpg", "minibolo2.jpeg"],
+                opcoes: { tamanhos: [{ nome: "Bolo Caseiro Tradicional" }] }
+            },
+            {
+                id: 3,
+                nome: "Salgados Artesanais Variados",
+                categoria: "salgados",
+                descricao: "Todo o tipo de salgados fritos e assados sob encomenda para festas e eventos.",
+                imagens: ["salg3.jpeg", "salg4.jpeg"],
+                opcoes: { tamanhos: [{ nome: "Chamuças Variadas" }, { nome: "Rissóis Variados" }, { nome: "Salgados Sortidos" }] }
+            }
+        ];
+
+        // Mapeia o índice atual da imagem exibida em cada produto do cardápio
+        const indicesImagensProdutos = {};
+
+        let categoriaAtual = 'todos';
+        let carrinho = [];
+        let produtoSelecionadoTemp = null;
+        const IMG_FALLBACK = "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&auto=format&fit=crop";
+
+        document.addEventListener("DOMContentLoaded", () => {
+            renderizarProdutos(produtosSaDelicias);
+            iniciarHeroSlider();
+        });
+
+        // LÓGICA DO SLIDER HERO
+        function iniciarHeroSlider() {
+            renderizarDotsHero();
+            setInterval(() => {
+                mudarFotoHero(1);
+            }, 3500);
+        }
+
+        function renderizarDotsHero() {
+            const dotsContainer = document.getElementById('hero-slider-dots');
+            dotsContainer.innerHTML = '';
+            fotosHero.forEach((_, idx) => {
+                const dot = document.createElement('span');
+                dot.className = `w-2 h-2 rounded-full transition-all cursor-pointer ${idx === fotoHeroIndex ? 'bg-white w-5' : 'bg-white/50'}`;
+                dot.onclick = () => irParaFotoHero(idx);
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        function atualizarFotoHero() {
+            const imgElement = document.getElementById('hero-slider-img');
+            imgElement.style.opacity = '0';
+            setTimeout(() => {
+                imgElement.src = fotosHero[fotoHeroIndex];
+                imgElement.style.opacity = '1';
+                renderizarDotsHero();
+            }, 200);
+        }
+
+        function mudarFotoHero(direcao) {
+            fotoHeroIndex = (fotoHeroIndex + direcao + fotosHero.length) % fotosHero.length;
+            atualizarFotoHero();
+        }
+
+        function irParaFotoHero(index) {
+            fotoHeroIndex = index;
+            atualizarFotoHero();
+        }
+
+        // LÓGICA DE TROCA DE FOTOS DO CARDÁPIO
+        function mudarFotoProduto(idProduto, direcao, event) {
+            if (event) event.stopPropagation();
+
+            const produto = produtosSaDelicias.find(p => p.id === idProduto);
+            if (!produto || !produto.imagens || produto.imagens.length <= 1) return;
+
+            if (indicesImagensProdutos[idProduto] === undefined) {
+                indicesImagensProdutos[idProduto] = 0;
+            }
+
+            const totalImagens = produto.imagens.length;
+            indicesImagensProdutos[idProduto] = (indicesImagensProdutos[idProduto] + direcao + totalImagens) % totalImagens;
+
+            const novoIndex = indicesImagensProdutos[idProduto];
+            const imgElement = document.getElementById(`img-prod-${idProduto}`);
+            if (imgElement) {
+                imgElement.style.opacity = '0.3';
+                setTimeout(() => {
+                    imgElement.src = produto.imagens[novoIndex];
+                    imgElement.style.opacity = '1';
+                }, 150);
+            }
+
+            // Atualiza os dots indicadores do produto
+            const dotsContainer = document.getElementById(`dots-prod-${idProduto}`);
+            if (dotsContainer) {
+                Array.from(dotsContainer.children).forEach((dot, idx) => {
+                    dot.className = `w-1.5 h-1.5 rounded-full transition-all ${idx === novoIndex ? 'bg-white w-3' : 'bg-white/50'}`;
+                });
+            }
+        }
+
+        // DEMAIS FUNÇÕES
+        function tratarErroImagem(imgElement) {
+            imgElement.onerror = null;
+            imgElement.src = IMG_FALLBACK;
+        }
+
+        function abrirZoom(src) {
+            document.getElementById('imgModalZoom').src = src;
+            document.getElementById('modalZoom').classList.remove('hidden');
+        }
+
+        function fecharZoom() {
+            document.getElementById('modalZoom').classList.add('hidden');
+        }
+
+        function renderizarProdutos(lista) {
+            const container = document.getElementById('lista-produtos');
+            container.innerHTML = "";
+
+            if (!lista || lista.length === 0) {
+                container.innerHTML = `<p class="col-span-full text-center text-gray-400 italic py-12 text-sm">Nenhum produto encontrado nesta categoria.</p>`;
+                return;
+            }
+
+            lista.forEach(p => {
+                if (indicesImagensProdutos[p.id] === undefined) {
+                    indicesImagensProdutos[p.id] = 0;
+                }
+
+                const imgAtual = (p.imagens && p.imagens.length > 0) ? p.imagens[indicesImagensProdutos[p.id]] : IMG_FALLBACK;
+                const temVariasImagens = p.imagens && p.imagens.length > 1;
+
+                let botoesNavegacao = '';
+                let dotsNavegacao = '';
+
+                if (temVariasImagens) {
+                    botoesNavegacao = `
+                        <button onclick="mudarFotoProduto(${p.id}, -1, event)" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white w-7 h-7 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                            <i class="fa-solid fa-chevron-left text-[10px]"></i>
+                        </button>
+                        <button onclick="mudarFotoProduto(${p.id}, 1, event)" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white w-7 h-7 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-10">
+                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+                    `;
+
+                    dotsNavegacao = `<div id="dots-prod-${p.id}" class="absolute bottom-2 left-0 right-0 flex justify-center gap-1 z-10">`;
+                    p.imagens.forEach((_, idx) => {
+                        const ativo = idx === indicesImagensProdutos[p.id];
+                        dotsNavegacao += `<span class="w-1.5 h-1.5 rounded-full transition-all ${ativo ? 'bg-white w-3' : 'bg-white/50'}"></span>`;
+                    });
+                    dotsNavegacao += `</div>`;
+                }
+
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 flex flex-col justify-between transition-all group";
+                card.innerHTML = `
+                    <div>
+                        <div class="relative overflow-hidden aspect-[4/3] bg-gray-50">
+                            <img id="img-prod-${p.id}" src="${imgAtual}" onerror="tratarErroImagem(this)" onclick="abrirZoom(this.src)" alt="${p.nome}" class="w-full h-full object-cover cursor-zoom-in transition-all duration-300">
+                            <span class="absolute top-3 right-3 bg-rose-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase z-10">${p.categoria}</span>
+                            ${botoesNavegacao}
+                            ${dotsNavegacao}
+                        </div>
+                        <div class="p-3.5 sm:p-4 space-y-1">
+                            <h3 class="text-xs sm:text-sm font-bold text-gray-900">${p.nome}</h3>
+                            <p class="text-gray-500 text-[11px] sm:text-xs line-clamp-2">${p.descricao}</p>
+                        </div>
+                    </div>
+                    <div class="p-3.5 sm:p-4 pt-0 flex items-center justify-between mt-2">
+                        <span class="text-xs sm:text-sm font-extrabold text-rose-600">Sob Consulta</span>
+                        <button onclick="abrirModalOpcoes(${p.id})" class="bg-rose-600 hover:bg-rose-700 text-white px-3 py-1.5 rounded-lg font-semibold text-xs transition flex items-center gap-1.5">
+                            <i class="fa-solid fa-sliders"></i> Opções
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function abrirModalOpcoes(idProduto) {
+            const produto = produtosSaDelicias.find(p => p.id === idProduto);
+            if (!produto) return;
+
+            produtoSelecionadoTemp = JSON.parse(JSON.stringify(produto));
+            document.getElementById('modalOpcoesTitulo').innerText = produto.nome;
+            const corpo = document.getElementById('modalOpcoesCorpo');
+            corpo.innerHTML = "";
+
+            if (produto.opcoes && produto.opcoes.tamanhos) {
+                let htmlGrupo = `<div class="space-y-2">
+                    <label class="block text-xs font-bold text-gray-700 uppercase">Escolha o Tipo / Opção:</label>
+                    <div class="space-y-1.5">`;
+                produto.opcoes.tamanhos.forEach((op, idx) => {
+                    const checked = idx === 0 ? 'checked' : '';
+                    htmlGrupo += `
+                        <label class="flex items-center justify-between p-2.5 border rounded-xl cursor-pointer bg-white text-xs font-semibold">
+                            <div class="flex items-center gap-2">
+                                <input type="radio" name="opcaoPrincipal" value="${op.nome}" ${checked} class="accent-rose-600">
+                                <span>${op.nome}</span>
+                            </div>
+                            <span class="text-rose-600 font-bold">Sob Consulta</span>
+                        </label>
+                    `;
+                });
+                htmlGrupo += `</div></div>`;
+                corpo.innerHTML += htmlGrupo;
+            }
+
+            corpo.innerHTML += `
+                <div class="space-y-1 pt-1">
+                    <label class="block text-xs font-bold text-gray-700 uppercase">Observações / Detalhes:</label>
+                    <textarea id="obsProduto" rows="2" placeholder="Ex: Sabor pretendido, número de pessoas..." class="w-full p-2.5 border border-gray-200 rounded-xl text-xs outline-none focus:border-rose-600"></textarea>
+                </div>
+            `;
+
+            document.getElementById('modalOpcoes').classList.remove('hidden');
+        }
+
+        function fecharModalOpcoes() {
+            document.getElementById('modalOpcoes').classList.add('hidden');
+        }
+
+        function confirmarAdicaoCarrinho() {
+            const radioSelecionado = document.querySelector('input[name="opcaoPrincipal"]:checked');
+            const obs = document.getElementById('obsProduto').value.trim();
+
+            let detalhes = [];
+            if (radioSelecionado) detalhes.push(radioSelecionado.value);
+            if (obs) detalhes.push(`Obs: ${obs}`);
+
+            carrinho.push({
+                idCart: Date.now(),
+                id: produtoSelecionadoTemp.id,
+                nome: produtoSelecionadoTemp.nome,
+                detalhes: detalhes.join(' | '),
+                qtd: 1
+            });
+
+            fecharModalOpcoes();
+            atualizarCarrinho();
+            toggleCarrinho(true);
+        }
+
+        function removerItemCarrinho(idCart) {
+            carrinho = carrinho.filter(i => i.idCart !== idCart);
+            atualizarCarrinho();
+        }
+
+        function atualizarCarrinho() {
+            const container = document.getElementById('itens-carrinho');
+            const headerCount = document.getElementById('cart-count-header');
+            const bottomCount = document.getElementById('cart-count-bottom');
+
+            container.innerHTML = "";
+            let totalItens = 0;
+
+            if (carrinho.length === 0) {
+                container.innerHTML = `<div class="text-center py-10 text-gray-400 text-xs">
+                    <i class="fa-solid fa-basket-shopping text-3xl mb-2 text-rose-600/40 block"></i>
+                    Seu carrinho está vazio.
+                </div>`;
+            } else {
+                carrinho.forEach(item => {
+                    totalItens += item.qtd;
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = "bg-gray-50 p-3 rounded-xl border border-gray-100 relative space-y-1";
+                    itemDiv.innerHTML = `
+                        <h4 class="font-bold text-xs text-gray-800 pr-6">${item.nome}</h4>
+                        <p class="text-[10px] text-rose-600 font-medium">${item.detalhes}</p>
+                        <button onclick="removerItemCarrinho(${item.idCart})" class="absolute top-2 right-2 text-red-400 hover:text-red-600 text-xs p-1">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    `;
+                    container.appendChild(itemDiv);
+                });
+            }
+
+            if (headerCount) headerCount.innerText = totalItens;
+            if (bottomCount) bottomCount.innerText = totalItens;
+        }
+
+        function toggleCarrinho(forcarAbertura = false) {
+            const modal = document.getElementById('carrinho-modal');
+            if (forcarAbertura || modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        function enviarPedidoWhatsApp() {
+            if (carrinho.length === 0) {
+                alert("O seu carrinho está vazio.");
+                return;
+            }
+
+            const telefone = "258840333913";
+            let mensagem = "👋 Olá, Sá Delícias 786! Gostaria de solicitar o seguinte orçamento/pedido:\n\n";
+            carrinho.forEach(item => {
+                mensagem += `• *${item.nome}* (${item.detalhes})\n\n`;
+            });
+            mensagem += `Por favor, confirmem a disponibilidade e os valores. Obrigado!`;
+            window.open(`https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`, '_blank');
+        }
+
+        function calcularEvento(e) {
+            e.preventDefault();
+            const pessoas = parseInt(document.getElementById('calcPessoas').value);
+            if (!pessoas || pessoas < 1) return;
+
+            const salgadosDuzias = Math.ceil((pessoas * 6) / 12);
+            let boloSugerido = "Bolo Pequeno / Médio";
+            if (pessoas > 20 && pessoas <= 40) boloSugerido = "Bolo Médio / Grande";
+            else if (pessoas > 40) boloSugerido = "Bolo de 2 ou mais andares";
+
+            document.getElementById('resSalgados').innerText = `${salgadosDuzias} dúzias`;
+            document.getElementById('resBolo').innerText = boloSugerido;
+            document.getElementById('resultadoCalculadora').classList.remove('hidden');
+        }
+
+        function filtrarCategoria(categoria, btnElement) {
+            categoriaAtual = categoria;
+            document.querySelectorAll('.btn-cat').forEach(b => {
+                b.className = "btn-cat shrink-0 px-4 py-2 rounded-xl font-medium text-gray-500 hover:text-rose-600 text-xs sm:text-sm transition";
+            });
+            if(btnElement) {
+                btnElement.className = "btn-cat shrink-0 px-4 py-2 rounded-xl font-bold bg-rose-600 text-white text-xs sm:text-sm transition shadow-sm";
+            }
+            filtrarProdutos();
+        }
+
+        function filtrarProdutos() {
+            const termo = document.getElementById('campo-busca').value.toLowerCase().trim();
+            let dados = produtosSaDelicias;
+
+            if (categoriaAtual !== 'todos') {
+                dados = dados.filter(p => p.categoria.toLowerCase() === categoriaAtual.toLowerCase());
+            }
+
+            if (termo !== "") {
+                dados = dados.filter(p => 
+                    p.nome.toLowerCase().includes(termo) || 
+                    p.descricao.toLowerCase().includes(termo)
+                );
+            }
+
+            renderizarProdutos(dados);
+        }
+    </script>
+</body>
+</html>
